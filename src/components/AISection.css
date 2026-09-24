@@ -1,0 +1,210 @@
+/* ══════════════════════════════════════════════════════════
+   AI SECTION — Intelligent systems showcase
+   ══════════════════════════════════════════════════════════ */
+
+.ai-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-surface);
+}
+
+/* ── Neural network background ── */
+.ai-bg {
+  position: absolute;
+  top: 50%;
+  right: -80px;
+  transform: translateY(-50%);
+  width: 55%;
+  min-width: 600px;
+  opacity: 0.16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.neural-node {
+  fill: var(--color-amber);
+  animation: neural-node-pulse 3s ease-in-out infinite;
+}
+
+.neural-output {
+  fill: var(--color-amber-light);
+}
+
+@keyframes neural-node-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+.n-delay-0 { animation-delay: 0s; }
+.n-delay-1 { animation-delay: 0.2s; }
+.n-delay-2 { animation-delay: 0.4s; }
+.n-delay-3 { animation-delay: 0.6s; }
+.n-delay-4 { animation-delay: 0.8s; }
+.n-delay-5 { animation-delay: 1s; }
+.n-delay-6 { animation-delay: 1.2s; }
+
+.neural-line {
+  stroke: var(--color-border-glow);
+  animation: neural-line-fade 2.4s ease-in-out infinite;
+  opacity: 0.35;
+}
+
+@keyframes neural-line-fade {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.8s; }
+
+.neural-pulse {
+  fill: var(--color-amber-light);
+  filter: drop-shadow(0 0 6px var(--color-amber));
+}
+
+/* ── Layout ── */
+.ai-content {
+  position: relative;
+  z-index: 1;
+}
+
+.ai-header {
+  max-width: 640px;
+  margin-bottom: var(--space-16);
+}
+
+.ai-capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-bottom: var(--space-16);
+}
+
+.ai-cap-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.4s var(--ease-out),
+              transform 0.4s var(--ease-spring),
+              box-shadow 0.4s var(--ease-out);
+}
+
+.ai-cap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-glow);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.ai-cap-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  font-size: var(--text-xl);
+  background: linear-gradient(150deg, var(--color-surface-3), var(--color-surface-4));
+  border: 1px solid var(--color-border-glow);
+  border-radius: 15px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.ai-cap-card:hover .ai-cap-icon {
+  transform: translateY(-2px) rotate(-6deg);
+}
+
+.ai-cap-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.ai-cap-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-3);
+  line-height: 1.7;
+}
+
+/* ── Banner ── */
+.ai-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-10) var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 30%, transparent 52%),
+    linear-gradient(120deg, var(--color-surface-2), var(--color-surface));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-banner::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ai-banner-text {
+  position: relative;
+  z-index: 1;
+}
+
+.ai-banner-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-4);
+  margin-bottom: var(--space-4);
+}
+
+.ai-banner-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ai-cta-btn {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .ai-bg {
+    opacity: 0.12;
+    right: -220px;
+  }
+
+  .ai-capabilities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .ai-capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-8);
+    gap: var(--space-6);
+  }
+
+  .ai-cta-btn {
+    width: 100%;
+  }
+}

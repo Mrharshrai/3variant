@@ -1,0 +1,60 @@
+/* ══════════════════════════════════════════════════════════
+   CURSOR — Gold precision reticle
+   ══════════════════════════════════════════════════════════ */
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-amber);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.55);
+  pointer-events: none;
+  z-index: var(--z-top);
+  transition: width 0.25s var(--ease-out), height 0.25s var(--ease-out),
+              background 0.4s var(--ease-out), box-shadow 0.25s var(--ease-out);
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  pointer-events: none;
+  z-index: calc(var(--z-top) - 1);
+  transition: border-color 0.3s var(--ease-out), background 0.3s var(--ease-out),
+              width 0.3s var(--ease-out), height 0.3s var(--ease-out),
+              margin 0.3s var(--ease-out),
+              transform 0.3s var(--ease-out);
+}
+
+.cursor-ring.hovered {
+  width: 62px;
+  height: 62px;
+  margin: -11px 0 0 -11px;
+  border-color: rgba(212, 175, 55, 0.55);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.cursor-dot.clicking {
+  width: 12px;
+  height: 12px;
+  background: var(--color-amber-light);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.75);
+}
+
+.cursor-ring.clicking {
+  transform: scale(0.85);
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

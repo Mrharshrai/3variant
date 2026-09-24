@@ -1,0 +1,155 @@
+/* ══════════════════════════════════════════════════════════
+   SERVICES — Glass capability suites
+   ══════════════════════════════════════════════════════════ */
+
+.services-section {
+  background: transparent;
+}
+
+.services-orb {
+  width: 620px;
+  height: 620px;
+  top: 8%;
+  right: -220px;
+  opacity: 0.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+  position: relative;
+  z-index: 1;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-8);
+  gap: var(--space-5);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.45s var(--ease-out),
+              box-shadow 0.45s var(--ease-out),
+              transform 0.45s var(--ease-spring);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 30% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+  pointer-events: none;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 2px);
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-border-glow), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.22);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 175, 55, 0.05);
+}
+
+.service-card:hover::before { opacity: 1; }
+.service-card:hover::after { opacity: 1; }
+
+.service-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.service-icon {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--service-color) 10%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--service-color) 24%, transparent);
+  color: var(--service-color);
+  position: relative;
+  transition: transform 0.45s var(--ease-spring), box-shadow 0.45s var(--ease-out);
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-3px) rotate(-6deg);
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--service-color) 28%, transparent);
+}
+
+.service-arrow {
+  color: var(--color-text-4);
+  opacity: 0;
+  transform: translate(-8px, 8px);
+  transition: all 0.4s var(--ease-out);
+}
+
+.service-card:hover .service-arrow {
+  color: var(--color-amber);
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.service-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+.service-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-3);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.service-tags .tag-pill {
+  font-size: 10.5px;
+  padding: 4px 10px;
+  background: var(--color-surface-2);
+  border-color: var(--color-border);
+  color: var(--color-text-3);
+}
+
+.service-tags .tag-pill:hover {
+  color: var(--color-amber-light);
+  border-color: var(--color-border-glow);
+  background: var(--color-surface-3);
+}
+
+@media (max-width: 1180px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: var(--space-6);
+  }
+}

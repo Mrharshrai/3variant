@@ -1,0 +1,189 @@
+﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   AURORA â€” Ethereal violet dreamscape
+   Token layer for the Noir design system
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+@keyframes aurora-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, -40px) scale(1.1); }
+  66% { transform: translate(-30px, 30px) scale(0.95); }
+}
+
+@keyframes aurora-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-50px, 50px) scale(1.05); }
+  66% { transform: translate(40px, -20px) scale(1.1); }
+}
+
+@keyframes aurora-breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes aurora-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aurora-dot-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(99, 102, 241, 0.4); transform: scale(1); }
+  50% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.8), 0 0 40px rgba(168, 85, 247, 0.3); transform: scale(1.3); }
+}
+
+html[data-theme="aurora"] {
+  --color-bg:           #0f0a1e;
+  --color-bg-2:         #141024;
+  --color-surface:      #171232;
+  --color-surface-2:    #1c1640;
+  --color-surface-3:    #221b4d;
+  --color-surface-4:    #2a215c;
+
+  --color-border:       rgba(99, 102, 241, 0.14);
+  --color-border-dim:   rgba(99, 102, 241, 0.07);
+  --color-border-glow:  rgba(168, 85, 247, 0.3);
+
+  --color-amber:        #818cf8;
+  --color-amber-light:  #a5b4fc;
+  --color-amber-dim:    rgba(99, 102, 241, 0.1);
+  --color-on-accent:    #ffffff;
+
+  --color-teal:         #a855f7;
+  --color-teal-light:   #c084fc;
+  --color-teal-dim:     rgba(168, 85, 247, 0.1);
+
+  --color-green:        #34d399;
+  --color-green-dim:    rgba(52, 211, 153, 0.1);
+  --color-red:          #f472b6;
+  --color-red-dim:      rgba(244, 114, 182, 0.1);
+
+  --color-accent:       #6366f1;
+  --color-accent-cyan:  #a855f7;
+  --color-accent-light: #818cf8;
+  --color-error:        #f472b6;
+
+  --color-text:         #e8e0f0;
+  --color-text-2:       #b3a9ca;
+  --color-text-3:       #80749d;
+  --color-text-4:       #4a4266;
+
+  --grad-primary:    linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --grad-amber:      linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+  --grad-teal:       linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  --grad-green:      linear-gradient(135deg, #059669 0%, #34d399 100%);
+  --grad-surface:    linear-gradient(145deg, rgba(99,102,241,0.07) 0%, rgba(168,85,247,0.05) 100%);
+  --grad-glow:       radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 65%);
+
+  --font-heading:    'Sora', 'Space Grotesk', sans-serif;
+  --font-body:       'Inter', sans-serif;
+  --font-mono:       'JetBrains Mono', monospace;
+
+  --shadow-sm:     0 2px 8px rgba(30, 20, 70, 0.35);
+  --shadow-md:     0 12px 40px rgba(30, 20, 70, 0.45);
+  --shadow-lg:     0 28px 72px rgba(30, 20, 70, 0.55);
+  --shadow-amber:  0 8px 44px rgba(99, 102, 241, 0.22);
+  --shadow-teal:   0 8px 44px rgba(168, 85, 247, 0.2);
+}
+
+/* â”€â”€ Aurora atmosphere â”€â”€ */
+html[data-theme="aurora"] body {
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 45% 50% at 80% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 35% at 50% 70%, rgba(244, 114, 182, 0.09) 0%, transparent 70%),
+    linear-gradient(160deg, #0f0a1e 0%, #1a0f2e 35%, #0d1321 70%, #0f0a1e 100%);
+}
+
+html[data-theme="aurora"] body::before {
+  background:
+    radial-gradient(ellipse 60% 40% at 70% 15%, rgba(168, 85, 247, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 55% at 25% 60%, rgba(99, 102, 241, 0.1) 0%, transparent 65%);
+  animation: aurora-float-1 25s ease-in-out infinite, aurora-float-2 30s ease-in-out infinite, aurora-breathe 10s ease-in-out infinite;
+}
+
+html[data-theme="aurora"] ::selection {
+  background: #6366f1;
+  color: #ffffff;
+}
+
+html[data-theme="aurora"] ::-webkit-scrollbar-track { background: #0f0a1e; }
+html[data-theme="aurora"] ::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.2); border-color: #0f0a1e; }
+html[data-theme="aurora"] ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+html[data-theme="aurora"] .title-accent {
+  background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: aurora-shimmer 6s ease-in-out infinite;
+}
+
+html[data-theme="aurora"] .section-label {
+  color: #a5b4fc;
+}
+
+html[data-theme="aurora"] .hero-badge-dot {
+  background: #a855f7;
+  box-shadow: 0 0 10px #a855f7;
+  animation: aurora-dot-pulse 3s ease-in-out infinite;
+}
+
+html[data-theme="aurora"] .hero-orb-1 {
+  animation: aurora-float-1 20s ease-in-out infinite;
+}
+
+html[data-theme="aurora"] .hero-orb-2 {
+  animation: aurora-float-2 24s ease-in-out infinite;
+}
+
+html[data-theme="aurora"] .orb-amber {
+  background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, transparent 70%);
+}
+
+html[data-theme="aurora"] .orb-teal {
+  background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+}
+
+html[data-theme="aurora"] .orb-blue {
+  background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+}
+
+html[data-theme="aurora"] .orb-cyan {
+  background: radial-gradient(circle, rgba(168,85,247,0.12) 0%, transparent 70%);
+}
+
+html[data-theme="aurora"] .section-rule {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #f472b6);
+}
+
+html[data-theme="aurora"] .footer-glow {
+  background: linear-gradient(90deg, transparent, #6366f1, #a855f7, transparent);
+  opacity: 0.7;
+  width: 800px;
+}
+
+html[data-theme="aurora"] .form-input:focus,
+html[data-theme="aurora"] .form-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12), 0 0 24px rgba(99, 102, 241, 0.08);
+}
+
+html[data-theme="aurora"] .form-select option {
+  background: #1a0f2e;
+  color: #e8e0f0;
+}
+
+html[data-theme="aurora"] .cursor-dot {
+  background: #818cf8;
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.4);
+}
+
+html[data-theme="aurora"] .cursor-ring {
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+html[data-theme="aurora"] .cursor-ring.hovered {
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.04);
+}
