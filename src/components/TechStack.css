@@ -94,6 +94,7 @@
   transition: all 0.3s var(--ease-out);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .tech-tab::before {
@@ -103,6 +104,7 @@
   background: var(--grad-primary);
   opacity: 0;
   transition: opacity 0.3s var(--ease-out);
+  z-index: -1;
 }
 
 .tech-tab:hover {
